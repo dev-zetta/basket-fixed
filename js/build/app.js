@@ -2,7 +2,7 @@ var goal_counter = 0;
 var counter_txt = document.getElementById("counter_txt");
 var EVENTS = {
     _click: function (e) {
-        window.addEventListener("click", e.throwBall), window.addEventListener("click", function () {
+        document.querySelector(".whs canvas").addEventListener("click", e.throwBall), window.addEventListener("click", function () {
             var t = e.world.getRenderer().domElement;
             !t.fullscreenElement && e.isMobile && (t.webkitRequestFullscreen && t.webkitRequestFullscreen(), t.mozRequestFullscreen && t.mozRequestFullscreen(), t.msRequestFullscreen && t.msRequestFullscreen(), t.requestFullscreen && t.requestFullscreen())
         })
@@ -85,8 +85,8 @@ antialias: false,
 
 }
   },
-stats: "fps",
-            physics: {fixedTimeStep: 1 / 120},
+//stats: "fps",
+            physics: {fixedTimeStep: 1 / 60},
             gravity: {y: -200}
         }), APP.camera = APP.world.getCamera(), APP.camera.lookAt(new THREE.Vector3(0, APP.basketY, 0)), APP.ProgressLoader = new ProgressLoader(APP.isMobile ? 12 : 14), APP.createScene(), APP.addLights(), APP.addBasket(), APP.addBall(), APP.initEvents(), APP.keep_ball = keep_ball(APP), APP.world.addLoop(APP.keep_ball), APP.keep_ball.start(), APP.world.start()
     },

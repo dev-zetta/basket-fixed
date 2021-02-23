@@ -54672,11 +54672,12 @@ var WHS =
 	    var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	    if (world) {
-	      if (params.timeStep && params.timeStep < fixedTimeStep) params.timeStep = fixedTimeStep;
-params.timeStep = 0.008333333333333333
+				fixedTimeStep = 1  / 60
+				params.timeStep = fixedTimeStep
 
-	      params.maxSubSteps = params.maxSubSteps || Math.ceil(params.timeStep / fixedTimeStep); // If maxSubSteps is not defined, keep the simulation fully up to date
+	      //if (params.timeStep && params.timeStep < fixedTimeStep) params.timeStep = fixedTimeStep;
 
+	      params.maxSubSteps = 1 //params.maxSubSteps || Math.ceil(params.timeStep / fixedTimeStep); // If maxSubSteps is not defined, keep the simulation fully up to date
 
 	//console.warn("simulate", params.timeStep, params.maxSubSteps, fixedTimeStep)
 	      world.stepSimulation(params.timeStep, params.maxSubSteps, fixedTimeStep);
